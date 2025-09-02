@@ -17,7 +17,7 @@ COPY entrypoint.sh .
 RUN chmod +x entrypoint.sh
 
 # Set environment variables
-ENV DJANGO_SETTINGS_MODULE=myproject.settings \
+ENV DJANGO_SETTINGS_MODULE=gymer.settings \
     PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1
 

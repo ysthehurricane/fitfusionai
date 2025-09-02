@@ -18,4 +18,4 @@ python manage.py collectstatic --noinput
 echo "Static files collected!"
 
 # Start Gunicorn server
-exec gunicorn myproject.wsgi:application --bind 0.0.0.0:8000 --workers 3
+exec gunicorn gymer.wsgi:application --bind 0.0.0.0:8000 --workers 3
