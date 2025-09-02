@@ -10,6 +10,8 @@ echo "PostgreSQL is ready!"
 # Apply database migrations
 python manage.py migrate --noinput
 
+echo "PostgreSQL migration is done!"
+
 # Collect static files (for Django frontend assets)
 python manage.py collectstatic --noinput
 
