@@ -23,5 +23,3 @@ env/
 uploads/
 
 .env/
-
-migrations/

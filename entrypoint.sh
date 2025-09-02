@@ -1,7 +1,9 @@
 #!/bin/sh
+set -e  # exit if any command fails
 
-echo "Waiting for PostgreSQL..."
-until pg_isready -h db -p 5432 -U postgres; do
+echo "Waiting for PostgreSQL at $DB_HOST:$DB_PORT..."
+
+until pg_isready -h "$DB_HOST" -p "$DB_PORT" -U "$DB_USER"; do
   sleep 2
 done
 
@@ -9,11 +11,11 @@ echo "PostgreSQL is ready!"
 
 # Apply database migrations
 python manage.py migrate --noinput
+echo "Migrations applied!"
 
-echo "PostgreSQL migration is done!"
-
-# Collect static files (for Django frontend assets)
+# Collect static files
 python manage.py collectstatic --noinput
+echo "Static files collected!"
 
-# Start Django server (Gunicorn recommended for production)
-gunicorn myproject.wsgi:application --bind 0.0.0.0:8000 --workers 3
+# Start Gunicorn server
+exec gunicorn myproject.wsgi:application --bind 0.0.0.0:8000 --workers 3
