@@ -14,6 +14,8 @@ from registerapp.models import User
 stripe.api_key = settings.STRIPE_SECRET_KEY
 endpoint_secret = settings.STRIPE_WEBHOOK_SECRECT
 
+print("loading...")
+
 def productlist(request):
     user_name = request.session.get('user_name', None)
 
