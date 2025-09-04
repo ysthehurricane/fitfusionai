@@ -7,7 +7,7 @@ until pg_isready -h "$DB_HOST" -p "$DB_PORT" -U "$DB_USER"; do
   sleep 2
 done
 
-echo "PostgreSQL is ready !"
+echo "PostgreSQL is ready!"
 
 # Apply database migrations
 python manage.py makemigrations --noinput
