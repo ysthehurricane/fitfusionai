@@ -7,8 +7,12 @@ RUN apt-get update && apt-get install -y postgresql-client build-essential libpq
 
 # Install Python dependencies
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-RUN pip install --no-cache-dir gunicorn
+# RUN pip install --no-cache-dir -r requirements.txt
+# RUN pip install --no-cache-dir gunicorn
+
+RUN pip install --no-cache-dir -r requirements.txt \
+    && pip install --no-cache-dir gunicorn \
+    && ln -s /root/.local/bin/gunicorn /usr/local/bin/gunicorn || true
 
 # Copy app files
 COPY . .
