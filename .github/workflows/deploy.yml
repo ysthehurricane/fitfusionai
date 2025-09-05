@@ -45,6 +45,7 @@ jobs:
           docker build -t fitfusionai-django-new .
 
           docker run -d -p 8000:8000 --name fitfusionai-django-new \
+            -v /root/fitfusionai-django-new/staticfiles:/app/staticfiles \
             -e DB_USER="$DB_USER" \
             -e DB_PASSWORD="$DB_PASSWORD" \
             -e DB_HOST="$DB_HOST" \
