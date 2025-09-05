@@ -164,6 +164,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 
+
 BASE_URL = "http://yash-intern.ybaisolution.com/"
 BASE_DIR = Path(__file__).resolve().parent.parent
 
